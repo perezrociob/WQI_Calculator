@@ -71,5 +71,6 @@ Contributions are welcome! Since this is a work in progress, please open an issu
 ## ✒️ Author
 
 * **Ing. Rocío Belén Pérez** - *Initial Work & Development*
+* [Pérez, R. B. (2026). WQI Calculator: Herramienta para el cálculo de índices de calidad del agua (Versión 0.1.0) [Software de computación]. Zenodo. https://www.google.com/url?sa=E&source=gmail&q=[https://doi.org/10.5281/zenodo.18598741]
 
 ---
