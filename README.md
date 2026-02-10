@@ -4,6 +4,8 @@
 ![Python](https://img.shields.io/badge/Python-3.8%2B-blue)
 ![GUI](https://img.shields.io/badge/Interface-PyQt5-green)
 
+[![DOI](https://zenodo.org/badge/1154548825.svg)](https://doi.org/10.5281/zenodo.18598741)
+
 A desktop application designed to automate the calculation, analysis, and visualization of Water Quality Indices based on physicochemical parameters. 
 
 **⚠️ Note: This project is currently under active development. Features and code structure are subject to change.**
