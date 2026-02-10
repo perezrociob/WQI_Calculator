@@ -1,0 +1,1136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1280</width>
+    <height>720</height>
+   </rect>
+  </property>
+  <property name="sizePolicy">
+   <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+    <horstretch>0</horstretch>
+    <verstretch>0</verstretch>
+   </sizepolicy>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>1280</width>
+    <height>720</height>
+   </size>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <property name="styleSheet">
+    <string notr="true"/>
+   </property>
+   <layout class="QHBoxLayout" name="horizontalLayout" stretch="1,15">
+    <property name="spacing">
+     <number>0</number>
+    </property>
+    <property name="leftMargin">
+     <number>0</number>
+    </property>
+    <property name="topMargin">
+     <number>0</number>
+    </property>
+    <property name="rightMargin">
+     <number>0</number>
+    </property>
+    <property name="bottomMargin">
+     <number>0</number>
+    </property>
+    <item>
+     <widget class="QFrame" name="frame_menu">
+      <property name="maximumSize">
+       <size>
+        <width>16777215</width>
+        <height>16777215</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">QFrame{
+background-color: rgb(60, 110, 113);
+}
+QLabel{
+	color: white;
+	font: 63 18pt &quot;Segoe UI Black&quot;
+}
+QPushButton{
+	background-color: transparent;
+	color: white;
+	font: 63 10pt &quot;Segoe UI Black&quot;;
+}</string>
+      </property>
+      <property name="frameShape">
+       <enum>QFrame::StyledPanel</enum>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Raised</enum>
+      </property>
+      <layout class="QVBoxLayout" name="verticalLayout_2" stretch="1,1,2,2,4,4,4,1,2">
+       <item>
+        <spacer name="verticalSpacer_menu1">
+         <property name="orientation">
+          <enum>Qt::Vertical</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>20</width>
+           <height>63</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+       <item>
+        <widget class="QLabel" name="label">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
+         <property name="pixmap">
+          <pixmap>resources/logo_app.png</pixmap>
+         </property>
+         <property name="scaledContents">
+          <bool>false</bool>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+         <property name="wordWrap">
+          <bool>false</bool>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="label_menu_title">
+         <property name="font">
+          <font>
+           <family>Segoe UI Black</family>
+           <pointsize>18</pointsize>
+           <weight>7</weight>
+           <italic>false</italic>
+           <bold>false</bold>
+          </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true"/>
+         </property>
+         <property name="text">
+          <string>Calculadora 
+ WQI</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <spacer name="verticalSpacer_menu_2">
+         <property name="orientation">
+          <enum>Qt::Vertical</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>20</width>
+           <height>63</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+       <item>
+        <widget class="QPushButton" name="pushButton_menu_load">
+         <property name="maximumSize">
+          <size>
+           <width>16777215</width>
+           <height>40</height>
+          </size>
+         </property>
+         <property name="text">
+          <string>  Cargar Datos</string>
+         </property>
+         <property name="icon">
+          <iconset>
+           <normaloff>resources/icon_pushbutton_upload.png</normaloff>resources/icon_pushbutton_upload.png</iconset>
+         </property>
+         <property name="iconSize">
+          <size>
+           <width>16</width>
+           <height>16</height>
+          </size>
+         </property>
+         <property name="flat">
+          <bool>false</bool>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="pushButton_menu_download">
+         <property name="maximumSize">
+          <size>
+           <width>16777215</width>
+           <height>40</height>
+          </size>
+         </property>
+         <property name="text">
+          <string>  Descargar</string>
+         </property>
+         <property name="icon">
+          <iconset>
+           <normaloff>resources/icon_pushbutton_download.png</normaloff>resources/icon_pushbutton_download.png</iconset>
+         </property>
+         <property name="iconSize">
+          <size>
+           <width>16</width>
+           <height>16</height>
+          </size>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="pushButton_menu_config">
+         <property name="maximumSize">
+          <size>
+           <width>16777215</width>
+           <height>40</height>
+          </size>
+         </property>
+         <property name="text">
+          <string>  Configuración</string>
+         </property>
+         <property name="icon">
+          <iconset>
+           <normaloff>resources/icon_pushbutton_settings.png</normaloff>resources/icon_pushbutton_settings.png</iconset>
+         </property>
+         <property name="iconSize">
+          <size>
+           <width>16</width>
+           <height>16</height>
+          </size>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <spacer name="verticalSpacer_menu_3">
+         <property name="orientation">
+          <enum>Qt::Vertical</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>20</width>
+           <height>62</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+       <item>
+        <widget class="QFrame" name="frame">
+         <property name="frameShape">
+          <enum>QFrame::StyledPanel</enum>
+         </property>
+         <property name="frameShadow">
+          <enum>QFrame::Raised</enum>
+         </property>
+         <layout class="QHBoxLayout" name="horizontalLayout_7">
+          <property name="spacing">
+           <number>1</number>
+          </property>
+          <property name="leftMargin">
+           <number>0</number>
+          </property>
+          <property name="topMargin">
+           <number>0</number>
+          </property>
+          <property name="rightMargin">
+           <number>0</number>
+          </property>
+          <property name="bottomMargin">
+           <number>2</number>
+          </property>
+          <item>
+           <widget class="QLabel" name="label_2">
+            <property name="maximumSize">
+             <size>
+              <width>50</width>
+              <height>50</height>
+             </size>
+            </property>
+            <property name="text">
+             <string>TextLabel</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLabel" name="label_3">
+            <property name="maximumSize">
+             <size>
+              <width>50</width>
+              <height>50</height>
+             </size>
+            </property>
+            <property name="text">
+             <string>TextLabel</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </item>
+    <item>
+     <widget class="QFrame" name="frame_main">
+      <property name="styleSheet">
+       <string notr="true">QFrame{
+	background-color: rgb(217, 217, 217);
+}
+
+QLabel{
+	color: rgb(53, 53, 53);
+	font: 63 10pt &quot;Segoe UI Semibold&quot;
+}</string>
+      </property>
+      <property name="frameShape">
+       <enum>QFrame::StyledPanel</enum>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Raised</enum>
+      </property>
+      <layout class="QHBoxLayout" name="horizontalLayout_2" stretch="0">
+       <property name="spacing">
+        <number>0</number>
+       </property>
+       <property name="leftMargin">
+        <number>0</number>
+       </property>
+       <property name="topMargin">
+        <number>0</number>
+       </property>
+       <property name="rightMargin">
+        <number>0</number>
+       </property>
+       <property name="bottomMargin">
+        <number>0</number>
+       </property>
+       <item>
+        <widget class="QTabWidget" name="tabWidget">
+         <property name="styleSheet">
+          <string notr="true">QTabWidget::pane {
+    background-color: #FFFFFF;
+    border-radius: 10px; 
+}
+
+
+QTabWidget::tab-bar {
+    left: 10px; 
+}
+
+QTabBar::tab {
+	max-height: 20px; 
+	min-width: 40px;
+    background-color: #FFFFFF; 
+    color: #353535;            
+    border-radius: 10px;
+    padding: 5px 20px;
+    margin-right: 3px;
+	font: 10pt &quot;Segoe UI Semibold&quot;;
+}
+
+QTabBar::tab:selected {
+    background-color: #3C6E71;
+    color: #FFFFFF;
+    border: 1px solid #3C6E71;
+}
+
+/* 5. PESTAÑA AL PASAR EL MOUSE (Hover) */
+QTabBar::tab:hover:!selected {
+    background-color: #FFFFFF;   /* Azul muy clarito */
+    color: #353535;
+    border: 1px solid #3C6E71;
+}</string>
+         </property>
+         <property name="currentIndex">
+          <number>0</number>
+         </property>
+         <property name="usesScrollButtons">
+          <bool>true</bool>
+         </property>
+         <property name="documentMode">
+          <bool>true</bool>
+         </property>
+         <widget class="QWidget" name="tabIWQI">
+          <attribute name="title">
+           <string>IWQI</string>
+          </attribute>
+          <layout class="QVBoxLayout" name="verticalLayout" stretch="1,12,6">
+           <property name="spacing">
+            <number>5</number>
+           </property>
+           <property name="topMargin">
+            <number>5</number>
+           </property>
+           <property name="bottomMargin">
+            <number>5</number>
+           </property>
+           <item>
+            <widget class="QFrame" name="frame_control_IWQI">
+             <property name="styleSheet">
+              <string notr="true">QLabel{
+	color:rgb(11, 7, 125)
+	font: 75 30pt &quot;MS Shell Dlg 2&quot;;
+}</string>
+             </property>
+             <property name="frameShape">
+              <enum>QFrame::StyledPanel</enum>
+             </property>
+             <property name="frameShadow">
+              <enum>QFrame::Raised</enum>
+             </property>
+             <layout class="QHBoxLayout" name="horizontalLayout_4" stretch="2,8,1,3">
+              <item>
+               <widget class="QLabel" name="label_name_IWQI">
+                <property name="text">
+                 <string/>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <spacer name="horizontalSpacer_control_IWQI">
+                <property name="orientation">
+                 <enum>Qt::Horizontal</enum>
+                </property>
+                <property name="sizeHint" stdset="0">
+                 <size>
+                  <width>725</width>
+                  <height>20</height>
+                 </size>
+                </property>
+               </spacer>
+              </item>
+              <item>
+               <widget class="QLabel" name="label_control_AX2_IWQI">
+                <property name="text">
+                 <string>Eje Secundario:</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QComboBox" name="comboBox_IWQI">
+                <property name="styleSheet">
+                 <string notr="true">QComboBox {
+    background-color: #FFFFFF;
+    border-radius: 10px;         /* Borde totalmente circular (Cápsula) */
+    padding: 4px 10px 4px 10px;  /* Más padding a la izq para el texto */
+    color: #353535;
+	font: 63 9pt &quot;Segoe UI Semilight&quot;;
+}
+
+/* Efecto al pasar el mouse por encima */
+QComboBox:hover {
+    border: 1px solid #3C6E71;   /* Se pone azul el borde */
+    background-color: #FFFFFF;
+}
+
+/* Cuando está desplegado */
+QComboBox:on { 
+    border-bottom-left-radius: 0px;  /* Quitamos curvas de abajo para conectar con la lista */
+    border-bottom-right-radius: 0px;
+}
+
+/* 1. EL BOTÓN CUADRADO DE LA DERECHA */
+QComboBox::drop-down {
+    subcontrol-origin: padding;
+    subcontrol-position: top right;
+    width: 20px; /* Ancho del área clickeable */
+    
+    border-left-width: 0px; /* Sin línea divisoria */
+    border-top-right-radius: 10px; /* Redondeamos igual que el combo */
+    border-bottom-right-radius: 10px;
+    background-color: transparent; /* ¡Vital! Para que no se vea un parche de color */
+}
+
+/* 2. LA IMAGEN DE LA FLECHA */
+QComboBox::down-arrow {
+    /* Reemplaza 'assets/flecha_abajo.png' con tu ruta real */
+    image: url(C:/Users/Cachi/Desktop/WQI Calculator/resources/combobox_arrow_down.png);
+	
+    
+    width: 10px;   /* Tamaño pequeño para elegancia */
+    height: 10px;
+    
+    /* Centrado y márgenes */
+    content: &quot;&quot;;   /* A veces ayuda a limpiar residuos */
+    margin-right: 10px; /* Separación del borde derecho */
+}
+
+/* 3. (Opcional) EFECTO AL ABRIR */
+/* Si tu flecha es negra, quizás no necesites cambiarla, 
+   pero si quisieras rotarla o cambiarla, usarías esto */
+QComboBox::down-arrow:on {
+    /* Podrías poner otra imagen: url(assets/flecha_arriba.png); */
+    /* O moverla ligeramente para dar efecto de &quot;click&quot; */
+    top: 1px; 
+    left: 1px;
+}</string>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+           </item>
+           <item>
+            <widget class="QFrame" name="frame_plot_IWQI">
+             <property name="styleSheet">
+              <string notr="true">QFrame{
+background-color: rgb(255, 255, 255);
+border-radius: 10px;
+}</string>
+             </property>
+             <property name="frameShape">
+              <enum>QFrame::StyledPanel</enum>
+             </property>
+             <property name="frameShadow">
+              <enum>QFrame::Raised</enum>
+             </property>
+             <layout class="QVBoxLayout" name="verticalLayout_4">
+              <item>
+               <widget class="QWidget" name="widget_plot_IWQI" native="true">
+                <property name="enabled">
+                 <bool>true</bool>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+           </item>
+           <item>
+            <widget class="QFrame" name="frame_other_IWQI">
+             <property name="styleSheet">
+              <string notr="true"/>
+             </property>
+             <property name="frameShape">
+              <enum>QFrame::StyledPanel</enum>
+             </property>
+             <property name="frameShadow">
+              <enum>QFrame::Raised</enum>
+             </property>
+             <layout class="QHBoxLayout" name="horizontalLayout_3" stretch="2,1">
+              <property name="spacing">
+               <number>5</number>
+              </property>
+              <property name="leftMargin">
+               <number>0</number>
+              </property>
+              <property name="topMargin">
+               <number>2</number>
+              </property>
+              <property name="rightMargin">
+               <number>0</number>
+              </property>
+              <property name="bottomMargin">
+               <number>2</number>
+              </property>
+              <item>
+               <widget class="QFrame" name="frame_table_IWQI">
+                <property name="styleSheet">
+                 <string notr="true">QFrame{
+background-color: rgb(255, 255, 255);
+border-radius: 10px;
+}</string>
+                </property>
+                <property name="frameShape">
+                 <enum>QFrame::StyledPanel</enum>
+                </property>
+                <property name="frameShadow">
+                 <enum>QFrame::Raised</enum>
+                </property>
+                <layout class="QVBoxLayout" name="verticalLayout_3">
+                 <property name="spacing">
+                  <number>5</number>
+                 </property>
+                 <property name="leftMargin">
+                  <number>9</number>
+                 </property>
+                 <property name="topMargin">
+                  <number>5</number>
+                 </property>
+                 <property name="rightMargin">
+                  <number>9</number>
+                 </property>
+                 <property name="bottomMargin">
+                  <number>5</number>
+                 </property>
+                 <item>
+                  <widget class="QTableWidget" name="tableWidget_IWQI">
+                   <property name="enabled">
+                    <bool>true</bool>
+                   </property>
+                   <property name="styleSheet">
+                    <string notr="true">QTableView {
+    background-color: #FFFFFF;     
+    gridline-color: transparent;   
+    selection-background-color: #E3F2FD; 
+    selection-color: #1565C0;     
+    font-size: 12px;
+    outline: 0; 
+}
+
+
+QTableView::item {
+    border-bottom: 1px solid #F0F0F0; 
+}
+
+QTableView::item:selected {
+    border: none;
+    background-color: #E3F2FD;
+}
+
+QTableView::item:hover {
+    background-color: #FAFAFA; 
+}
+
+/* 3. LOS ENCABEZADOS (HEADERS) */
+QHeaderView::section {
+
+	background-color: #FFFFFF;    
+    color: #3C6E71;              
+    border: 2px solid #D9D9D9;     
+
+    border-radius: 15px;          
+    margin: 1px 1px;               /* Separamos los headers entre sí (Arriba/Abajo, Izq/Der) */
+    padding: 1px 1px;             /* Relleno para que el texto respire */
+    
+    font: 87 10pt &quot;Segoe UI Black&quot;;
+}
+
+
+/* 5. SCROLLBAR VERTICAL (Minimalista) */
+QScrollBar:vertical {
+    background: #F5F5F5;
+    width: 8px;               /* Muy delgada */
+    margin: 0px 0px 0px 0px;
+}
+
+QScrollBar::handle:vertical {
+    background: #CCCCCC;      /* Gris suave */
+    min-height: 20px;
+    border-radius: 4px;       /* Redondeada */
+}
+
+QScrollBar::handle:vertical:hover {
+    background: #999999;      /* Un poco más oscuro al pasar mouse */
+}
+
+/* Ocultar flechas de arriba y abajo del scroll para limpieza total */
+QScrollBar::add-line:vertical, QScrollBar::sub-line:vertical {
+    height: 0px;
+}
+QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
+    background: none;
+}</string>
+                   </property>
+                   <property name="horizontalScrollBarPolicy">
+                    <enum>Qt::ScrollBarAlwaysOff</enum>
+                   </property>
+                   <column>
+                    <property name="text">
+                     <string notr="true">Muestra</string>
+                    </property>
+                    <property name="font">
+                     <font>
+                      <family>Segoe UI Semilight</family>
+                      <pointsize>11</pointsize>
+                     </font>
+                    </property>
+                   </column>
+                   <column>
+                    <property name="text">
+                     <string notr="true">Na⁺</string>
+                    </property>
+                    <property name="font">
+                     <font>
+                      <family>Segoe UI Semilight</family>
+                      <pointsize>11</pointsize>
+                     </font>
+                    </property>
+                   </column>
+                   <column>
+                    <property name="text">
+                     <string notr="true">Cl⁻</string>
+                    </property>
+                    <property name="font">
+                     <font>
+                      <family>Segoe UI Semilight</family>
+                      <pointsize>11</pointsize>
+                     </font>
+                    </property>
+                   </column>
+                   <column>
+                    <property name="text">
+                     <string notr="true">HCO₃⁻</string>
+                    </property>
+                    <property name="font">
+                     <font>
+                      <family>Segoe UI Semilight</family>
+                      <pointsize>11</pointsize>
+                     </font>
+                    </property>
+                   </column>
+                   <column>
+                    <property name="text">
+                     <string notr="true">RAS</string>
+                    </property>
+                    <property name="font">
+                     <font>
+                      <family>Segoe UI Semilight</family>
+                      <pointsize>11</pointsize>
+                     </font>
+                    </property>
+                   </column>
+                   <column>
+                    <property name="text">
+                     <string notr="true">EC</string>
+                    </property>
+                    <property name="font">
+                     <font>
+                      <family>Segoe UI Semilight</family>
+                      <pointsize>11</pointsize>
+                     </font>
+                    </property>
+                   </column>
+                   <column>
+                    <property name="text">
+                     <string notr="true">IWQI</string>
+                    </property>
+                    <property name="font">
+                     <font>
+                      <family>Segoe UI Semilight</family>
+                      <pointsize>11</pointsize>
+                     </font>
+                    </property>
+                   </column>
+                  </widget>
+                 </item>
+                </layout>
+               </widget>
+              </item>
+              <item>
+               <widget class="QFrame" name="frame_percents_IWQI">
+                <property name="styleSheet">
+                 <string notr="true">QFrame{
+background-color: rgb(255, 255, 255);
+border-radius: 10px;
+}</string>
+                </property>
+                <property name="frameShape">
+                 <enum>QFrame::StyledPanel</enum>
+                </property>
+                <property name="frameShadow">
+                 <enum>QFrame::Raised</enum>
+                </property>
+                <layout class="QVBoxLayout" name="verticalLayout_5">
+                 <item>
+                  <widget class="QWidget" name="widget_percents_IWQI" native="true"/>
+                 </item>
+                </layout>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+         <widget class="QWidget" name="tabDWQI">
+          <attribute name="title">
+           <string>DWQI</string>
+          </attribute>
+          <layout class="QVBoxLayout" name="verticalLayout_9" stretch="0,12,6">
+           <property name="spacing">
+            <number>5</number>
+           </property>
+           <property name="topMargin">
+            <number>5</number>
+           </property>
+           <property name="bottomMargin">
+            <number>5</number>
+           </property>
+           <item>
+            <widget class="QFrame" name="frame_control_DWQI">
+             <property name="styleSheet">
+              <string notr="true">QLabel{
+	color:rgb(11, 7, 125)
+	font: 75 30pt &quot;MS Shell Dlg 2&quot;;
+}</string>
+             </property>
+             <property name="frameShape">
+              <enum>QFrame::StyledPanel</enum>
+             </property>
+             <property name="frameShadow">
+              <enum>QFrame::Raised</enum>
+             </property>
+             <layout class="QHBoxLayout" name="horizontalLayout_6" stretch="2,8,1,3">
+              <item>
+               <widget class="QLabel" name="label_name_DWQI">
+                <property name="text">
+                 <string/>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <spacer name="horizontalSpacer_control_DWQI">
+                <property name="orientation">
+                 <enum>Qt::Horizontal</enum>
+                </property>
+                <property name="sizeHint" stdset="0">
+                 <size>
+                  <width>598</width>
+                  <height>20</height>
+                 </size>
+                </property>
+               </spacer>
+              </item>
+              <item>
+               <widget class="QLabel" name="label_control_AX2_DWQI">
+                <property name="text">
+                 <string>Eje Secundario:</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QComboBox" name="comboBox_DWQI">
+                <property name="styleSheet">
+                 <string notr="true">QComboBox {
+    background-color: #FFFFFF;
+    border-radius: 10px;         /* Borde totalmente circular (Cápsula) */
+    padding: 4px 10px 4px 10px;  /* Más padding a la izq para el texto */
+    color: #353535;
+	font: 63 9pt &quot;Segoe UI Semilight&quot;;
+}
+
+/* Efecto al pasar el mouse por encima */
+QComboBox:hover {
+    border: 1px solid #3C6E71;   /* Se pone azul el borde */
+    background-color: #FFFFFF;
+}
+
+/* Cuando está desplegado */
+QComboBox:on { 
+    border-bottom-left-radius: 0px;  /* Quitamos curvas de abajo para conectar con la lista */
+    border-bottom-right-radius: 0px;
+}
+
+/* 1. EL BOTÓN CUADRADO DE LA DERECHA */
+QComboBox::drop-down {
+    subcontrol-origin: padding;
+    subcontrol-position: top right;
+    width: 20px; /* Ancho del área clickeable */
+    
+    border-left-width: 0px; /* Sin línea divisoria */
+    border-top-right-radius: 10px; /* Redondeamos igual que el combo */
+    border-bottom-right-radius: 10px;
+    background-color: transparent; /* ¡Vital! Para que no se vea un parche de color */
+}
+
+/* 2. LA IMAGEN DE LA FLECHA */
+QComboBox::down-arrow {
+    /* Reemplaza 'assets/flecha_abajo.png' con tu ruta real */
+    image: url(C:/Users/Cachi/Desktop/WQI Calculator/resources/combobox_arrow_down.png);
+	
+    
+    width: 10px;   /* Tamaño pequeño para elegancia */
+    height: 10px;
+    
+    /* Centrado y márgenes */
+    content: &quot;&quot;;   /* A veces ayuda a limpiar residuos */
+    margin-right: 10px; /* Separación del borde derecho */
+}
+
+/* 3. (Opcional) EFECTO AL ABRIR */
+/* Si tu flecha es negra, quizás no necesites cambiarla, 
+   pero si quisieras rotarla o cambiarla, usarías esto */
+QComboBox::down-arrow:on {
+    /* Podrías poner otra imagen: url(assets/flecha_arriba.png); */
+    /* O moverla ligeramente para dar efecto de &quot;click&quot; */
+    top: 1px; 
+    left: 1px;
+}</string>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+           </item>
+           <item>
+            <widget class="QFrame" name="frame_plot_DWQI">
+             <property name="styleSheet">
+              <string notr="true">QFrame{
+background-color: rgb(255, 255, 255);
+border-radius: 10px;
+}</string>
+             </property>
+             <property name="frameShape">
+              <enum>QFrame::StyledPanel</enum>
+             </property>
+             <property name="frameShadow">
+              <enum>QFrame::Raised</enum>
+             </property>
+             <layout class="QVBoxLayout" name="verticalLayout_6">
+              <item>
+               <widget class="QWidget" name="widget_plot_DWQI" native="true"/>
+              </item>
+             </layout>
+            </widget>
+           </item>
+           <item>
+            <widget class="QFrame" name="frame_other_DWQI">
+             <property name="styleSheet">
+              <string notr="true"/>
+             </property>
+             <property name="frameShape">
+              <enum>QFrame::StyledPanel</enum>
+             </property>
+             <property name="frameShadow">
+              <enum>QFrame::Raised</enum>
+             </property>
+             <layout class="QHBoxLayout" name="horizontalLayout_5" stretch="2,1">
+              <property name="spacing">
+               <number>5</number>
+              </property>
+              <property name="leftMargin">
+               <number>0</number>
+              </property>
+              <property name="topMargin">
+               <number>2</number>
+              </property>
+              <property name="rightMargin">
+               <number>0</number>
+              </property>
+              <property name="bottomMargin">
+               <number>2</number>
+              </property>
+              <item>
+               <widget class="QFrame" name="frame_table_DWQI">
+                <property name="styleSheet">
+                 <string notr="true">QFrame{
+background-color: rgb(255, 255, 255);
+border-radius: 10px;
+}</string>
+                </property>
+                <property name="frameShape">
+                 <enum>QFrame::StyledPanel</enum>
+                </property>
+                <property name="frameShadow">
+                 <enum>QFrame::Raised</enum>
+                </property>
+                <layout class="QHBoxLayout" name="horizontalLayout_8">
+                 <property name="spacing">
+                  <number>5</number>
+                 </property>
+                 <property name="topMargin">
+                  <number>5</number>
+                 </property>
+                 <property name="bottomMargin">
+                  <number>5</number>
+                 </property>
+                 <item>
+                  <widget class="QTableWidget" name="tableWidget_DWQI">
+                   <property name="enabled">
+                    <bool>true</bool>
+                   </property>
+                   <property name="styleSheet">
+                    <string notr="true">QTableView {
+    background-color: #FFFFFF;     
+    gridline-color: transparent;   
+    selection-background-color: #E3F2FD; 
+    selection-color: #1565C0;     
+    font-size: 10px;
+    outline: 0; 
+}
+
+
+QTableView::item {
+    border-bottom: 1px solid #F0F0F0; 
+}
+
+QTableView::item:selected {
+    border: none;
+    background-color: #E3F2FD;
+}
+
+QTableView::item:hover {
+    background-color: #FAFAFA; 
+}
+
+/* 3. LOS ENCABEZADOS (HEADERS) */
+QHeaderView::section {
+
+	background-color: #FFFFFF;    
+    color: #3C6E71;              
+    border: 2px solid #D9D9D9;     
+
+    border-radius: 15px;          
+    margin: 1px 1px;               /* Separamos los headers entre sí (Arriba/Abajo, Izq/Der) */
+    padding: 1px 1px;             /* Relleno para que el texto respire */
+    
+    font: 87 10pt &quot;Segoe UI Black&quot;;
+}
+
+
+/* 5. SCROLLBAR VERTICAL (Minimalista) */
+QScrollBar:vertical {
+    background: #F5F5F5;
+    width: 8px;               /* Muy delgada */
+    margin: 0px 0px 0px 0px;
+}
+
+QScrollBar::handle:vertical {
+    background: #CCCCCC;      /* Gris suave */
+    min-height: 20px;
+    border-radius: 4px;       /* Redondeada */
+}
+
+QScrollBar::handle:vertical:hover {
+    background: #999999;      /* Un poco más oscuro al pasar mouse */
+}
+
+/* Ocultar flechas de arriba y abajo del scroll para limpieza total */
+QScrollBar::add-line:vertical, QScrollBar::sub-line:vertical {
+    height: 0px;
+}
+QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
+    background: none;
+}</string>
+                   </property>
+                   <property name="horizontalScrollBarPolicy">
+                    <enum>Qt::ScrollBarAlwaysOff</enum>
+                   </property>
+                   <column>
+                    <property name="text">
+                     <string notr="true">Muestra</string>
+                    </property>
+                    <property name="font">
+                     <font>
+                      <family>Segoe UI Semilight</family>
+                      <pointsize>11</pointsize>
+                     </font>
+                    </property>
+                   </column>
+                   <column>
+                    <property name="text">
+                     <string notr="true">Na⁺</string>
+                    </property>
+                    <property name="font">
+                     <font>
+                      <family>Segoe UI Semilight</family>
+                      <pointsize>11</pointsize>
+                     </font>
+                    </property>
+                   </column>
+                   <column>
+                    <property name="text">
+                     <string notr="true">Cl⁻</string>
+                    </property>
+                    <property name="font">
+                     <font>
+                      <family>Segoe UI Semilight</family>
+                      <pointsize>11</pointsize>
+                     </font>
+                    </property>
+                   </column>
+                   <column>
+                    <property name="text">
+                     <string notr="true">HCO₃⁻</string>
+                    </property>
+                    <property name="font">
+                     <font>
+                      <family>Segoe UI Semilight</family>
+                      <pointsize>11</pointsize>
+                     </font>
+                    </property>
+                   </column>
+                   <column>
+                    <property name="text">
+                     <string notr="true">RAS</string>
+                    </property>
+                    <property name="font">
+                     <font>
+                      <family>Segoe UI Semilight</family>
+                      <pointsize>11</pointsize>
+                     </font>
+                    </property>
+                   </column>
+                   <column>
+                    <property name="text">
+                     <string notr="true">EC</string>
+                    </property>
+                    <property name="font">
+                     <font>
+                      <family>Segoe UI Semilight</family>
+                      <pointsize>11</pointsize>
+                     </font>
+                    </property>
+                   </column>
+                   <column>
+                    <property name="text">
+                     <string notr="true">IWQI</string>
+                    </property>
+                    <property name="font">
+                     <font>
+                      <family>Segoe UI Semilight</family>
+                      <pointsize>11</pointsize>
+                     </font>
+                    </property>
+                   </column>
+                  </widget>
+                 </item>
+                </layout>
+               </widget>
+              </item>
+              <item>
+               <widget class="QFrame" name="frame_percents_DWQI">
+                <property name="styleSheet">
+                 <string notr="true">QFrame{
+background-color: rgb(255, 255, 255);
+border-radius: 10px;
+}</string>
+                </property>
+                <property name="frameShape">
+                 <enum>QFrame::StyledPanel</enum>
+                </property>
+                <property name="frameShadow">
+                 <enum>QFrame::Raised</enum>
+                </property>
+                <layout class="QVBoxLayout" name="verticalLayout_8">
+                 <item>
+                  <widget class="QWidget" name="widget_percents_DWQI" native="true"/>
+                 </item>
+                </layout>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
