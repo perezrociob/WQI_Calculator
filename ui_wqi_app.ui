@@ -280,7 +280,7 @@ QPushButton{
            <widget class="QLabel" name="label_3">
             <property name="maximumSize">
              <size>
-              <width>63</width>
+              <width>55</width>
               <height>68</height>
              </size>
             </property>

@@ -10,6 +10,21 @@ from index_calc import IWQICalculator, DWQICalculator
 from plotmodules import MplCanvas, PandasModel, PercentageCanvas
 import config as cfg
 
+def resource_path(relative_path):
+    """ 
+    Obtiene la ruta absoluta al recurso. 
+    Funciona para desarrollo (VS Code) y para el .exe (PyInstaller).
+    """
+    try:
+        # PyInstaller crea una carpeta temporal llamada _MEIPASS
+        base_path = sys._MEIPASS
+    except Exception:
+        # Si no es un exe, usa la ruta actual
+        base_path = os.path.abspath(".")
+
+    return os.path.join(base_path, relative_path)
+
+
 class WQI_Application(QtWidgets.QMainWindow):
     def __init__(self):
         super().__init__()
@@ -17,6 +32,13 @@ class WQI_Application(QtWidgets.QMainWindow):
         # Configuración inicial de la Interfaz
         self.ui = Ui_MainWindow()
         self.ui.setupUi(self)
+
+        self.setWindowTitle("Calculadora WQI")
+        
+        # Asegúrate de usar la función resource_path que definimos antes
+        # y que el archivo "icon_app.png" exista en tu carpeta resources
+        
+        app.setWindowIcon(QtGui.QIcon(resource_path("resources/icon_app.png")))
 
         # Variable de estado de carga del .csv
         self.csv_cargado = None
@@ -392,7 +414,15 @@ class WQI_Application(QtWidgets.QMainWindow):
                 valor = df_final.iloc[fila, columna]
                 
                 # Formatear: Si es float, limitar decimales. Si es texto, dejar igual.
-                if isinstance(valor, (float, int)):
+                name_col=df_final.columns[columna]
+                if name_col in ["Muestra", "Sample", "ID", "id"]:
+                    try:
+                        # Lo convertimos a int para quitar el .0 y luego a string
+                        texto_celda = str(int(valor))
+                    except:
+                        # Si por alguna razón es texto ("Muestra A"), se deja igual
+                        texto_celda = str(valor)
+                elif isinstance(valor, (float, int)):
                     texto_celda = f"{valor:.2f}" # 2 decimales
                 else:
                     texto_celda = str(valor)
@@ -469,8 +499,20 @@ class WQI_Application(QtWidgets.QMainWindow):
 
 
 if __name__ == "__main__":
-    app = QtWidgets.QApplication(sys.argv)
+    import ctypes
+    myappid = 'unsw.tesis.wqicalculator.v1' 
+    try:
+        ctypes.windll.shell32.SetCurrentProcessExplicitAppUserModelID(myappid)
+    except ImportError:
+        pass
+    # ----------------------------------------------
 
-    ventana = WQI_Application()
-    ventana.show()
+    app = QtWidgets.QApplication(sys.argv)
+    
+    # Cargar el icono TAMBIÉN en la aplicación global
+    ruta_icono = resource_path("resources/icon_app.png")
+    app.setWindowIcon(QtGui.QIcon(ruta_icono))
+    
+    window = WQI_Application()
+    window.show()
     sys.exit(app.exec_())

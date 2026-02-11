@@ -119,7 +119,7 @@ class Ui_MainWindow(object):
         self.label_2.setObjectName("label_2")
         self.horizontalLayout_7.addWidget(self.label_2)
         self.label_3 = QtWidgets.QLabel(self.frame)
-        self.label_3.setMaximumSize(QtCore.QSize(63, 68))
+        self.label_3.setMaximumSize(QtCore.QSize(55, 68))
         self.label_3.setText("")
         self.label_3.setPixmap(QtGui.QPixmap("resources/logo_UNS_blanco.png"))
         self.label_3.setScaledContents(True)
@@ -250,7 +250,7 @@ class Ui_MainWindow(object):
 "/* 2. LA IMAGEN DE LA FLECHA */\n"
 "QComboBox::down-arrow {\n"
 "    /* Reemplaza \'assets/flecha_abajo.png\' con tu ruta real */\n"
-"    image: url(C:/Users/Cachi/Desktop/WQI Calculator/resources/combobox_arrow_down.png);\n"
+"    image: url(resources/combobox_arrow_down.png);\n"
 "    \n"
 "    \n"
 "    width: 10px;   /* Tamaño pequeño para elegancia */\n"
@@ -514,7 +514,7 @@ class Ui_MainWindow(object):
 "/* 2. LA IMAGEN DE LA FLECHA */\n"
 "QComboBox::down-arrow {\n"
 "    /* Reemplaza \'assets/flecha_abajo.png\' con tu ruta real */\n"
-"    image: url(C:/Users/Cachi/Desktop/WQI Calculator/resources/combobox_arrow_down.png);\n"
+"    image: url(resources/combobox_arrow_down.png);\n"
 "    \n"
 "    \n"
 "    width: 10px;   /* Tamaño pequeño para elegancia */\n"
