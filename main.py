@@ -1,5 +1,6 @@
 import sys
 import pandas as pd
+import os
 
 from PyQt5 import QtWidgets, QtCore, QtGui
 from PyQt5.QtWidgets import QLabel, QVBoxLayout, QHeaderView
@@ -29,6 +30,8 @@ class WQI_Application(QtWidgets.QMainWindow):
         self.plot_percent_IWQI = None
         self.plot_percent_DWQI = None
 
+        self.filename_original = None
+
         # Inicializar tablas
         self.clean_table(self.ui.tableWidget_IWQI)
         self.clean_table(self.ui.tableWidget_DWQI)
@@ -55,6 +58,75 @@ class WQI_Application(QtWidgets.QMainWindow):
 
         ##### Cambio de tab
         self.ui.tabWidget.currentChanged.connect(self.OnChange_tabwidget)
+
+        #### Descargar Datos
+        self.ui.pushButton_menu_download.clicked.connect(self.save_results)
+
+
+    def save_results(self):
+        # 1. Validar que haya datos cargados
+        # 2. Detectar pestaña activa (0=IWQI, 1=DWQI)
+        index_tab = self.ui.tabWidget.currentIndex()
+        
+        # Variables temporales para no repetir código
+        df_target = None
+        plot_main = None
+        plot_perc = None
+        suffix = ""
+
+        if index_tab == 0: # Pestaña IWQI
+            if self.df_result_IWQI is None:
+                QtWidgets.QMessageBox.warning(self, "Aviso", "El índice IWQI no se ha calculado correctamente.")
+                return
+            df_target = self.df_result_IWQI
+            plot_main = self.plotIWQI
+            plot_perc = self.plot_percent_IWQI
+            suffix = "IWQI"
+            
+        elif index_tab == 1: # Pestaña DWQI
+            if self.df_result_DWQI is None:
+                QtWidgets.QMessageBox.warning(self, "Aviso", "El índice DWQI no se ha calculado correctamente.")
+                return
+            df_target = self.df_result_DWQI
+            plot_main = self.plotDWQI
+            plot_perc = self.plot_percent_DWQI
+            suffix = "DWQI"
+
+        # 3. Pedir al usuario DÓNDE guardar (Seleccionar Carpeta)
+        folder_path = QtWidgets.QFileDialog.getExistingDirectory(self, f"Seleccionar carpeta para guardar {suffix}")
+
+        if folder_path:
+            try:
+                # Construir nombres de archivo basados en el original
+                # Ej: Muestras_Rio_IWQI_Tabla.csv
+                base_name = f"{self.filename_original}_{suffix}"
+                
+                path_csv = os.path.join(folder_path, f"{base_name}_Tabla.csv")
+                path_plot_main = os.path.join(folder_path, f"{base_name}_Grafico_Principal.png")
+                path_plot_perc = os.path.join(folder_path, f"{base_name}_Grafico_Porcentajes.png")
+
+                # A. Guardar CSV
+                # index=False para que no guarde el número de fila (0, 1, 2...)
+                df_target.to_csv(path_csv, index=False, encoding='utf-8-sig') 
+
+                # B. Guardar Gráfico Principal (MplCanvas)
+                # Accedemos a la figura de Matplotlib (.fig) y usamos savefig
+                if plot_main is not None:
+                    plot_main.fig.savefig(path_plot_main, dpi=300, bbox_inches='tight')
+
+                # C. Guardar Gráfico Porcentajes (PercentageCanvas)
+                if plot_perc is not None:
+                    plot_perc.fig.savefig(path_plot_perc, dpi=300, bbox_inches='tight')
+
+                # Confirmación
+                QtWidgets.QMessageBox.information(self, "Éxito", 
+                    f"Archivos guardados correctamente en:\n{folder_path}\n\n"
+                    f"1. {os.path.basename(path_csv)}\n"
+                    f"2. {os.path.basename(path_plot_main)}\n"
+                    f"3. {os.path.basename(path_plot_perc)}")
+
+            except Exception as e:
+                QtWidgets.QMessageBox.critical(self, "Error al guardar", f"Ocurrió un error:\n{str(e)}")
 
     def OnChange_second_axis_IWQI(self):
         if self.csv_cargado is None:
@@ -162,6 +234,8 @@ class WQI_Application(QtWidgets.QMainWindow):
             self.df_result_IWQI = None
             self.df_result_DWQI = None
 
+            self.filename_original = None
+
             self.ui.comboBox_IWQI.blockSignals(True)
             self.ui.comboBox_IWQI.clear()
             self.ui.comboBox_IWQI.addItem('Sin Eje Secundario','Sin Eje Secundario')
@@ -181,9 +255,17 @@ class WQI_Application(QtWidgets.QMainWindow):
                 
             # Feedback al usuario
                 #self.ui.statusbar.showMessage(f"Archivo cargado: {path}")
+                filename = os.path.splitext(os.path.basename(path))[0]
+                self.filename_original = filename
 
                 self.getIWQI()
                 self.getDWQI()
+
+                self.ui.label_name_IWQI.setText(f"🌎{filename}")
+                self.ui.label_name_IWQI.setStyleSheet("font-size: 12pt; color: #3C6E71; font-weight: bold;")
+                
+                self.ui.label_name_DWQI.setText(f"🌎{filename}")
+                self.ui.label_name_DWQI.setStyleSheet("font-size: 12pt; color: #3C6E71; font-weight: bold;")
 
             except Exception as e:
                 QtWidgets.QMessageBox.critical(self, "Error al cargar", str(e))

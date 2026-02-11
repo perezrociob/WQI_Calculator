@@ -36,9 +36,9 @@ class PandasModel(QAbstractTableModel):
 # Clase Canvas (Gráfico MatplotLib)
 class MplCanvas(FigureCanvasQTAgg):
     def __init__(self, parent=None, width=5, height=4, dpi=100):
-        fig = Figure(figsize=(width, height), dpi=dpi,constrained_layout=True)
-        self.axes = fig.add_subplot(111)
-        super().__init__(fig)
+        self.fig = Figure(figsize=(width, height), dpi=dpi,constrained_layout=True)
+        self.axes = self.fig.add_subplot(111)
+        super().__init__(self.fig)
 
     def plot_intervals(self, intervals):
         """
@@ -90,6 +90,8 @@ class MplCanvas(FigureCanvasQTAgg):
 
         show_axis_2 = (y_data_2 is not None) and (sec_label != "Sin Eje Secundario")
 
+        unit_name_sec=""
+        styled_name_sec = ""
         if show_axis_2:
             self.axes_right = self.axes.twinx()
             styled_name_sec=cfg.NAMES_CONC.get(sec_label,sec_label)
@@ -144,7 +146,7 @@ class MplCanvas(FigureCanvasQTAgg):
             self.axes_right.yaxis.set_label_position("right") 
             self.axes_right.yaxis.tick_right()
 
-        self.cursor = mplcursors.cursor(line_cursor, hover=True)
+        self.cursor = mplcursors.cursor(line_cursor, hover=mplcursors.HoverMode.Transient)
 
         @self.cursor.connect("add")
         def on_add(sel):
@@ -165,10 +167,13 @@ class MplCanvas(FigureCanvasQTAgg):
             else:
                 txt_valor = f"Valor: {y_val:.2f}"
 
+
+    
             # TEXTO
             sel.annotation.set_text(f"{label_line}\n{x_label}: {int(x_txt)}\n{txt_valor}")
 
             # Tooltip
+            
             sel.annotation.get_bbox_patch().set(
                 fc="#34495E",       # Color de fondo (Azul oscuro)
                 ec="none",          # Sin borde
@@ -184,6 +189,10 @@ class MplCanvas(FigureCanvasQTAgg):
 
             # DISEÑO DE LA FLECHA
             sel.annotation.arrow_patch.set_visible(False)
+
+
+        
+        
 
         self.axes.relim()
         self.axes.autoscale_view()
